@@ -88,8 +88,14 @@ class HTTPClient(object):
         data = self.recvall(self.socket)
 
         code = self.get_code(data)
-        #header = self.get_headers(data)
+        header = self.get_headers(data)
         body = self.get_body(data)
+
+        print(code)
+        print('\r\n')
+        print(header)
+        print('\r\n\r\n')
+        print(body)
 
         self.close()
         return HTTPResponse(code, body)
@@ -116,8 +122,14 @@ class HTTPClient(object):
         data = self.recvall(self.socket)
 
         code = self.get_code(data)
-        #header = self.get_headers(data)
+        header = self.get_headers(data)
         body = self.get_body(data)
+
+        print(code)
+        print('\r\n')
+        print(header)
+        print('\r\n\r\n')
+        print(body)
 
         self.close()
         return HTTPResponse(code, body)
@@ -135,6 +147,10 @@ if __name__ == "__main__":
         help()
         sys.exit(1)
     elif (len(sys.argv) == 3):
+        print(client.command( sys.argv[2], sys.argv[1] ))
+    else:
+        print(client.command( sys.argv[1] ))
+
         print(client.command( sys.argv[2], sys.argv[1] ))
     else:
         print(client.command( sys.argv[1] ))
